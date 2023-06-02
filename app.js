@@ -37,8 +37,12 @@ switch (comando) {
 
     break;
   case "filtrar":
+    if (!argv[3]) {
+      console.log("ERROR: Debes proporcionar una categoría para filtrar".red);
+      break;
+    }
     let categorias = ["comercial","escolar","artistica"];
-    if(!categorias.includes(argv[3].toLowerCase())){
+    if(!categorias.includes(argv[3])){
       console.log("ERROR: Categoría inexistente. Seleccione una de las siguientes: comercial|escolar|artistica".red);
       break
     }
