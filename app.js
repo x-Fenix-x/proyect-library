@@ -1,7 +1,7 @@
 console.clear();
 const argv = require("process").argv;
 const moduloProductos = require("./productos");
-require('colors');
+require("colors");
 
 const comando = argv[2];
 let respuesta;
@@ -26,9 +26,9 @@ switch (comando) {
       break;
     }
 
-    if(moduloProductos.buscar(nombre)){
+    if (moduloProductos.buscar(nombre)) {
       console.log("ERROR: El ya existe en la base de datos");
-      break
+      break;
     }
 
     respuesta = moduloProductos.agregar(nombre, marca, precio, descuento);
@@ -41,10 +41,13 @@ switch (comando) {
       console.log("ERROR: Debes proporcionar una categoría para filtrar".red);
       break;
     }
-    let categorias = ["comercial","escolar","artistica"];
-    if(!categorias.includes(argv[3])){
-      console.log("ERROR: Categoría inexistente. Seleccione una de las siguientes: comercial|escolar|artistica".red);
-      break
+    let categorias = ["comercial", "escolar", "artistica"];
+    if (!categorias.includes(argv[3])) {
+      console.log(
+        "ERROR: Categoría inexistente. Seleccione una de las siguientes: comercial|escolar|artistica"
+          .red
+      );
+      break;
     }
     respuesta = moduloProductos.filtrar(argv[3]);
     moduloProductos.listar(respuesta);
