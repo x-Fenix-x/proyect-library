@@ -1,5 +1,5 @@
-//const { leerJSON, escribirJSON } = require("../data");
-// const Producto = require("./Producto");
+const { leerJSON, escribirJSON } = require("../data");
+const Producto = require("./Producto");
 
 module.exports = {
   //   productos: leerJSON(),
